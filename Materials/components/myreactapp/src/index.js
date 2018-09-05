@@ -15,7 +15,8 @@ import {Reservation} from "./Component/reservation";
 import {FormContainer} from "./Component/formcontainer";
 import './styles.css'
 import './spectre.min.css';
-import BasicExample from "./Component/route";
+import BasicExample from "./Component/route"; 
+import Root from "./Component/navlink";
 
 //ReactDOM.render(<App />, document.getElementById('root'));
 //registerServiceWorker();
@@ -73,6 +74,12 @@ function Hello()
                  <div>
                     <BasicExample/>
                  </div>
+                 <div>loading...<Root/></div>
+                  < footer>
+                    <hr />
+                    Note: 
+                    The <b>active class</b> should be declared after <b>default class</b>.
+                  </footer>
                  </div>
                  ;
       ReactDOM.render(jsx2,document.getElementById('root'));

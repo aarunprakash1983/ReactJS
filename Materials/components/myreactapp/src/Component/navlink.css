@@ -1,0 +1,38 @@
+.normal {
+  background: #ccc;
+  color: #000;
+}
+
+.active {
+  background: #fbfb09;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.address-bar {
+  background: #ccc;
+  padding: 0.5rem;
+  border: 1px solid;
+}
+.address-bar a {
+  margin: 0 2px;
+  cursor: pointer;
+}
+.address-bar .url {
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  background: #FFF;
+  margin-left: 5px;
+  width: 60%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+footer {
+  font-size: 0.9rem;
+  position: fixed;
+  bottom: 0;
+  left: 2;
+}
