@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>React Basics</title>
+    <script src="https://fb.me/react-0.14.3.js"></script>
+    <script src="https://fb.me/react-dom-0.14.3.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+<body>
+    <div id="app"></div>
+    <div id="app2"></div>
+
+    <div id="app3"></div>
+    <div id="app4"></div>
+    <div id="app5"></div>
+    <script type="text/babel">
+        console.log("Testing...");
+        ReactDOM.render(
+         <h1>Hello, world!</h1>,
+         document.getElementById('app')
+        );
+
+        const title = <h2>Arun Prakash</h2>;
+        const node = document.getElementById('app2');
+        ReactDOM.render(title,node);
+
+        function MyFirstReact()
+        {
+            return <div><h1>Hello Arun Prakash</h1><p>Testing React</p><hr/></div>
+        }
+        const jsx = <MyFirstReact/>;
+        const node2 = document.getElementById('app3');
+        ReactDOM.render(jsx,node2);
+
+         function MySecondReact()
+        {
+            return <div><h1>Hello Dhyaneshwar</h1><p>Learn React</p><hr/><hr/></div>
+        }
+        const jsx2 = <div><MySecondReact/><MySecondReact/><MySecondReact/><MySecondReact/></div>;
+        const node3 = document.getElementById('app4');
+        ReactDOM.render(jsx2,node3);
+
+        function MyReactwithProps(h)
+        {
+            return <div><h1>{h.name}</h1><p>{h.message}</p><hr/><hr/></div>
+        }
+        const jsx3 = <div><MyReactwithProps name="Arun Prabhu" message="How are you"/></div>;
+        const node4 = document.getElementById('app5');
+        ReactDOM.render(jsx3,node4);
+    </script>
+</body>
+</html>
