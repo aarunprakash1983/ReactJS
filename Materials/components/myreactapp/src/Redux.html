@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.0/redux.js"></script>
+</head>
+
+<body>
+    <div>
+        <form>
+            <input type="button" value="increment" onclick="increment()" />&nbsp;&nbsp;
+            <input type="button" value="decrement" onclick="decrement()" />
+        </form>
+        <h1 id="disp">0</h1>
+    </div>
+</body>
+<script>
+
+    function increment() {
+
+        appStore.dispatch({ type: "INCREMENT" })
+    }
+    function decrement() {
+        appStore.dispatch({ type: "DECREMENT" })
+    }
+    function counterReducer(prevState = { count: 0, i: 100 }, action) {
+        let newState;
+
+        switch (action.type) {
+            case "INCREMENT":
+
+                newState = { ...prevState, count: prevState.count + 1 }
+
+                break;
+            case "DECREMENT":
+                newState = { ...prevState, count: prevState.count - 1 }
+                break;
+            default:
+                newState = { ...prevState }
+                break;
+
+        }
+        console.log(newState);
+        console.log(prevState);
+        return newState;
+    }
+    const appStore = Redux.createStore(counterReducer);
+
+    appStore.subscribe(() => {
+        const displayNode = document.getElementById("disp");
+
+        displayNode.innerText = appStore.getState().count;
+    })
+</script>
+
+</html>
