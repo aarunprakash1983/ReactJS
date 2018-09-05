@@ -7,6 +7,9 @@ import thunk from 'redux-thunk'
 import reducer from './reducers'
 import { getAllProducts } from './actions'
 import App from './containers/App'
+import {composeWithDevTools} from 'redux-devtools-extension' 
+import PersonList from './Component/personlist'; 
+import UserDetailsAxios from './Component/userdetailsaxios';
 
 const middleware = [ thunk ];
 if (process.env.NODE_ENV !== 'production') {
@@ -15,14 +18,15 @@ if (process.env.NODE_ENV !== 'production') {
 
 const store = createStore(
   reducer,
-  applyMiddleware(...middleware)
-)
+  composeWithDevTools(applyMiddleware(...middleware),
+));
 
 store.dispatch(getAllProducts())
 
 render(
-  <Provider store={store}>
+  <div><Provider store={store}>
     <App />
-  </Provider>,
+  </Provider> <PersonList/><UserDetailsAxios/></div>,
+
   document.getElementById('root')
 )
