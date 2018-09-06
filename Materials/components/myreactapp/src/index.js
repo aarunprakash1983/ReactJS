@@ -1,32 +1,15 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { createStore, applyMiddleware } from 'redux'
+import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-import { createLogger } from 'redux-logger'
-import thunk from 'redux-thunk'
-import reducer from './reducers'
-import { getAllProducts } from './actions'
-import App from './containers/App'
-import {composeWithDevTools} from 'redux-devtools-extension' 
-import PersonList from './Component/personlist'; 
-import UserDetailsAxios from './Component/userdetailsaxios';
+import AppTodo from './componentsTodo/App'
+import rootReducer from './reducersTodo'
 
-const middleware = [ thunk ];
-if (process.env.NODE_ENV !== 'production') {
-  middleware.push(createLogger());
-}
-
-const store = createStore(
-  reducer,
-  composeWithDevTools(applyMiddleware(...middleware),
-));
-
-store.dispatch(getAllProducts())
+const store = createStore(rootReducer)
 
 render(
-  <div><Provider store={store}>
-    <App />
-  </Provider> <PersonList/><UserDetailsAxios/></div>,
-
+  <Provider store={store}>
+    <AppTodo />
+  </Provider>,
   document.getElementById('root')
 )
